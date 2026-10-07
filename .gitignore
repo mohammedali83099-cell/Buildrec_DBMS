@@ -46,6 +46,8 @@ ehthumbs.db
 *.sln
 *.swp
 *.swo
+~$*
+~$*.pptx
 
 # IDE & AI Agent Workspace Artifacts
 .system_generated/

@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50: #f4f7f5;
+  --color-sage-100: #e5ece7;
+  --color-sage-200: #cbd9cf;
+  --color-sage-300: #a7bfae;
+  --color-sage-400: #88a692;
+  --color-sage-500: #7A9687;
+  --color-sage-600: #5c7869;
+  --color-sage-700: #485e52;
+  --color-sage-800: #3c4d43;
+  --color-sage-900: #344039;
+
+  --color-charcoal-50: #f6f7f8;
+  --color-charcoal-100: #ebedef;
+  --color-charcoal-200: #d3d7dc;
+  --color-charcoal-300: #adb6bf;
+  --color-charcoal-400: #828e9c;
+  --color-charcoal-500: #626f7e;
+  --color-charcoal-600: #4c5765;
+  --color-charcoal-700: #3e4652;
+  --color-charcoal-800: #2B353A;
+  --color-charcoal-900: #1F292E;
+  --color-charcoal-950: #141c20;
+
+  --shadow-glass: 0 8px 32px 0 rgba(31, 41, 46, 0.05);
+  --shadow-glass-hover: 0 12px 40px 0 rgba(31, 41, 46, 0.08);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--color-charcoal-900);
+  background: #f8fafc;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Crisp Modern Panels & Cards (Refined Glassmorphism) */
+.glass-panel {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  border-radius: 1rem;
+}
+
+.glass-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}
+
+.glass-input {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  color: #1F292E;
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #7A9687;
+  box-shadow: 0 0 0 3px rgba(122, 150, 135, 0.15);
+}
+
+.glass-dropdown {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  color: #1F292E;
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-dropdown:focus {
+  outline: none;
+  border-color: #7A9687;
+  box-shadow: 0 0 0 3px rgba(122, 150, 135, 0.15);
+}
+
+.glass-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(to right, #2B353A, #1F292E);
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-button-primary:hover {
+  background: linear-gradient(to right, #1F292E, #141c20);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.glass-button-primary:active {
+  transform: scale(0.98);
+}
+
+.glass-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #2B353A;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-button-secondary:hover {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-button-secondary:active {
+  transform: scale(0.98);
+}
+
+.glass-button-sage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #7A9687;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-button-sage:hover {
+  background-color: #5c7869;
+  box-shadow: 0 4px 6px -1px rgba(122, 150, 135, 0.25);
+}
+
+.glass-button-sage:active {
+  transform: scale(0.98);
+}
+
+.glass-button-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid rgba(254, 202, 202, 0.6);
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-button-danger:hover {
+  background-color: #fee2e2;
+}
+
+.glass-button-danger:active {
+  transform: scale(0.98);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(122, 150, 135, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(122, 150, 135, 0.45);
+}

@@ -9,9 +9,7 @@ import {
   Truck,
   AlertCircle,
   Clock,
-  ArrowRight,
-  Zap,
-  Plus
+  ArrowRight
 } from 'lucide-react';
 import { StatCard } from '../components/StatCard';
 import { api } from '../api';
@@ -112,15 +110,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
 
       {/* Quick Access Operations Bar */}
       <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-xs">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-charcoal-900 text-amber-400">
-              <Zap className="w-4 h-4 fill-amber-400" />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm sm:text-base text-charcoal-900 tracking-tight">Quick Operations</h3>
-              <p className="text-[11px] sm:text-xs text-slate-500">Launch direct creation &amp; logging actions across modules</p>
-            </div>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3.5">
+          <div>
+            <h3 className="font-bold text-sm sm:text-base text-charcoal-900 tracking-tight">Quick Operations</h3>
+            <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Launch direct creation &amp; logging actions across modules</p>
           </div>
           <span className="text-[11px] font-semibold text-slate-400 hidden sm:inline">Direct 1-Click Launch</span>
         </div>

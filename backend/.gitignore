@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Production Build Outputs
+dist/
+build/
+
+# Sensitive Environment Configurations & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Editor & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

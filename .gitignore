@@ -53,3 +53,5 @@ ehthumbs.db
 .system_generated/
 .gemini/
 .agents/
+
+*.zip

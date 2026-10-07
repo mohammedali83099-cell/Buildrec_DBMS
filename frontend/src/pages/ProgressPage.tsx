@@ -16,7 +16,12 @@ import { Modal } from '../components/Modal';
 import { api } from '../api';
 import { WorkPackage, ProgressEntry, Contractor, LabourTeam, Site } from '../types';
 
-export const ProgressPage: React.FC = () => {
+interface ProgressPageProps {
+  initialAction?: 'log-progress' | 'add-package' | 'add-contractor' | null;
+  onActionHandled?: () => void;
+}
+
+export const ProgressPage: React.FC<ProgressPageProps> = ({ initialAction, onActionHandled }) => {
   const [activeTab, setActiveTab] = useState<'packages' | 'entries' | 'contractors' | 'teams'>('packages');
 
   const [workPackages, setWorkPackages] = useState<WorkPackage[]>([]);
@@ -74,6 +79,22 @@ export const ProgressPage: React.FC = () => {
   useEffect(() => {
     loadAllData();
   }, []);
+
+  useEffect(() => {
+    if (initialAction) {
+      if (initialAction === 'log-progress') {
+        setActiveTab('entries');
+        handleOpenLogProgress();
+      } else if (initialAction === 'add-package') {
+        setActiveTab('packages');
+        handleOpenAddPackage();
+      } else if (initialAction === 'add-contractor') {
+        setActiveTab('contractors');
+        handleOpenAddContractor();
+      }
+      onActionHandled?.();
+    }
+  }, [initialAction, workPackages, labourTeams]);
 
   const loadAllData = async () => {
     try {

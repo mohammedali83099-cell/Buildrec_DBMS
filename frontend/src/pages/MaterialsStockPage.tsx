@@ -15,7 +15,12 @@ import { Modal } from '../components/Modal';
 import { api } from '../api';
 import { Material, SiteStock, Issue, WorkPackage, Site } from '../types';
 
-export const MaterialsStockPage: React.FC = () => {
+interface MaterialsStockPageProps {
+  initialAction?: 'issue-material' | 'add-stock' | 'add-material' | null;
+  onActionHandled?: () => void;
+}
+
+export const MaterialsStockPage: React.FC<MaterialsStockPageProps> = ({ initialAction, onActionHandled }) => {
   const [activeTab, setActiveTab] = useState<'stock' | 'issues' | 'catalog'>('stock');
 
   const [siteStock, setSiteStock] = useState<SiteStock[]>([]);
@@ -64,6 +69,22 @@ export const MaterialsStockPage: React.FC = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (initialAction) {
+      if (initialAction === 'issue-material') {
+        setActiveTab('issues');
+        handleOpenIssueModal();
+      } else if (initialAction === 'add-stock') {
+        setActiveTab('stock');
+        handleOpenAddStock();
+      } else if (initialAction === 'add-material') {
+        setActiveTab('catalog');
+        handleOpenAddMaterial();
+      }
+      onActionHandled?.();
+    }
+  }, [initialAction, siteStock, workPackages]);
 
   const loadData = async () => {
     try {

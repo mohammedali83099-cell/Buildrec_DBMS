@@ -16,7 +16,12 @@ import { Modal } from '../components/Modal';
 import { api } from '../api';
 import { Supplier, PurchaseOrder, Delivery, DeliveryItem, Site, Material } from '../types';
 
-export const ProcurementPage: React.FC = () => {
+interface ProcurementPageProps {
+  initialAction?: 'add-delivery' | 'add-po' | 'add-item' | null;
+  onActionHandled?: () => void;
+}
+
+export const ProcurementPage: React.FC<ProcurementPageProps> = ({ initialAction, onActionHandled }) => {
   const [activeTab, setActiveTab] = useState<'deliveries' | 'pos' | 'items' | 'suppliers'>('deliveries');
   
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
@@ -53,6 +58,22 @@ export const ProcurementPage: React.FC = () => {
   useEffect(() => {
     loadAllData();
   }, []);
+
+  useEffect(() => {
+    if (initialAction) {
+      if (initialAction === 'add-delivery') {
+        setActiveTab('deliveries');
+        handleOpenAddDelivery();
+      } else if (initialAction === 'add-po') {
+        setActiveTab('pos');
+        handleOpenAddPO();
+      } else if (initialAction === 'add-item') {
+        setActiveTab('items');
+        handleOpenAddItem();
+      }
+      onActionHandled?.();
+    }
+  }, [initialAction, deliveries, purchaseOrders]);
 
   const loadAllData = async () => {
     try {

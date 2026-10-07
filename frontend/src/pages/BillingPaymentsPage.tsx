@@ -13,7 +13,12 @@ import { Modal } from '../components/Modal';
 import { api } from '../api';
 import { Bill, Payment, WorkPackage } from '../types';
 
-export const BillingPaymentsPage: React.FC = () => {
+interface BillingPaymentsPageProps {
+  initialAction?: 'add-bill' | 'record-payment' | null;
+  onActionHandled?: () => void;
+}
+
+export const BillingPaymentsPage: React.FC<BillingPaymentsPageProps> = ({ initialAction, onActionHandled }) => {
   const [activeTab, setActiveTab] = useState<'bills' | 'payments'>('bills');
 
   const [bills, setBills] = useState<Bill[]>([]);
@@ -54,6 +59,19 @@ export const BillingPaymentsPage: React.FC = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (initialAction) {
+      if (initialAction === 'add-bill') {
+        setActiveTab('bills');
+        handleOpenAddBill();
+      } else if (initialAction === 'record-payment') {
+        setActiveTab('payments');
+        handleOpenAddPayment();
+      }
+      onActionHandled?.();
+    }
+  }, [initialAction, bills, payments]);
 
   const loadData = async () => {
     try {

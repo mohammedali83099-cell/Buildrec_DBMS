@@ -12,6 +12,7 @@ import { api } from './api';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<TabId>('dashboard');
+  const [activeAction, setActiveAction] = useState<string | null>(null);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [dbConnected, setDbConnected] = useState(false);
 
@@ -31,8 +32,11 @@ export function App() {
     }
   };
 
-  const handleTabChange = (tab: TabId) => {
+  const handleTabChange = (tab: TabId, action?: string) => {
     setActiveTab(tab);
+    if (action) {
+      setActiveAction(action);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -63,11 +67,36 @@ export function App() {
         {/* Content Workspace */}
         <main className="flex-1 min-w-0 transition-all duration-200">
           {activeTab === 'dashboard' && <DashboardPage onNavigate={handleTabChange} />}
-          {activeTab === 'projects' && <ProjectsSitesPage />}
-          {activeTab === 'procurement' && <ProcurementPage />}
-          {activeTab === 'materials' && <MaterialsStockPage />}
-          {activeTab === 'progress' && <ProgressPage />}
-          {activeTab === 'billing' && <BillingPaymentsPage />}
+          {activeTab === 'projects' && (
+            <ProjectsSitesPage 
+              initialAction={activeAction as any} 
+              onActionHandled={() => setActiveAction(null)} 
+            />
+          )}
+          {activeTab === 'procurement' && (
+            <ProcurementPage 
+              initialAction={activeAction as any} 
+              onActionHandled={() => setActiveAction(null)} 
+            />
+          )}
+          {activeTab === 'materials' && (
+            <MaterialsStockPage 
+              initialAction={activeAction as any} 
+              onActionHandled={() => setActiveAction(null)} 
+            />
+          )}
+          {activeTab === 'progress' && (
+            <ProgressPage 
+              initialAction={activeAction as any} 
+              onActionHandled={() => setActiveAction(null)} 
+            />
+          )}
+          {activeTab === 'billing' && (
+            <BillingPaymentsPage 
+              initialAction={activeAction as any} 
+              onActionHandled={() => setActiveAction(null)} 
+            />
+          )}
           {activeTab === 'reports' && <ReportsPage />}
         </main>
       </div>

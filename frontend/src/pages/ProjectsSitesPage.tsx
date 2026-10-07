@@ -14,7 +14,12 @@ import { Modal } from '../components/Modal';
 import { api } from '../api';
 import { Project, Site } from '../types';
 
-export const ProjectsSitesPage: React.FC = () => {
+interface ProjectsSitesPageProps {
+  initialAction?: 'add-project' | 'add-site' | null;
+  onActionHandled?: () => void;
+}
+
+export const ProjectsSitesPage: React.FC<ProjectsSitesPageProps> = ({ initialAction, onActionHandled }) => {
   const [activeSubTab, setActiveSubTab] = useState<'projects' | 'sites'>('projects');
   const [projects, setProjects] = useState<Project[]>([]);
   const [sites, setSites] = useState<Site[]>([]);
@@ -41,6 +46,19 @@ export const ProjectsSitesPage: React.FC = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (!loading && initialAction) {
+      if (initialAction === 'add-project') {
+        setActiveSubTab('projects');
+        handleOpenAddProject();
+      } else if (initialAction === 'add-site') {
+        setActiveSubTab('sites');
+        handleOpenAddSite();
+      }
+      onActionHandled?.();
+    }
+  }, [loading, initialAction]);
 
   const loadData = async () => {
     try {

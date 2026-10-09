@@ -9,7 +9,11 @@ import {
   Truck,
   AlertCircle,
   Clock,
-  ArrowRight
+  ArrowRight,
+  FolderPlus,
+  PackageCheck,
+  PackageMinus,
+  FileText
 } from 'lucide-react';
 import { StatCard } from '../components/StatCard';
 import { api } from '../api';
@@ -125,10 +129,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             className="flex flex-col items-start p-3 rounded-xl bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-left transition-all group"
             title="Create a new construction undertaking"
           >
-            <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform border border-blue-100">
-              <Building2 className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-white text-charcoal-700 group-hover:bg-charcoal-900 group-hover:text-white group-hover:border-charcoal-900 flex items-center justify-center mb-2 transition-all border border-slate-200/90 shadow-2xs">
+              <FolderPlus className="w-3.5 h-3.5" />
             </div>
-            <span className="text-xs font-bold text-charcoal-900 group-hover:text-blue-700 transition-colors">New Project</span>
+            <span className="text-xs font-bold text-charcoal-900 group-hover:text-charcoal-950 transition-colors">New Project</span>
             <span className="text-[10px] text-slate-500 mt-0.5">Projects Module</span>
           </button>
 
@@ -138,10 +142,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             className="flex flex-col items-start p-3 rounded-xl bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-left transition-all group"
             title="Register a physical job site under a project"
           >
-            <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform border border-slate-200">
-              <MapPin className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-white text-charcoal-700 group-hover:bg-charcoal-900 group-hover:text-white group-hover:border-charcoal-900 flex items-center justify-center mb-2 transition-all border border-slate-200/90 shadow-2xs">
+              <MapPin className="w-3.5 h-3.5" />
             </div>
-            <span className="text-xs font-bold text-charcoal-900 group-hover:text-slate-800 transition-colors">Add Site</span>
+            <span className="text-xs font-bold text-charcoal-900 group-hover:text-charcoal-950 transition-colors">Add Site</span>
             <span className="text-[10px] text-slate-500 mt-0.5">Link to Project</span>
           </button>
 
@@ -151,10 +155,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             className="flex flex-col items-start p-3 rounded-xl bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-left transition-all group"
             title="Record site shipment arrival & received items"
           >
-            <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform border border-emerald-100">
-              <Truck className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-white text-charcoal-700 group-hover:bg-charcoal-900 group-hover:text-white group-hover:border-charcoal-900 flex items-center justify-center mb-2 transition-all border border-slate-200/90 shadow-2xs">
+              <PackageCheck className="w-3.5 h-3.5" />
             </div>
-            <span className="text-xs font-bold text-charcoal-900 group-hover:text-emerald-700 transition-colors">Receive Items</span>
+            <span className="text-xs font-bold text-charcoal-900 group-hover:text-charcoal-950 transition-colors">Receive Items</span>
             <span className="text-[10px] text-slate-500 mt-0.5">Procurement</span>
           </button>
 
@@ -164,10 +168,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             className="flex flex-col items-start p-3 rounded-xl bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-left transition-all group"
             title="Dispatch materials from inventory to package"
           >
-            <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform border border-amber-100">
-              <Boxes className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-white text-charcoal-700 group-hover:bg-charcoal-900 group-hover:text-white group-hover:border-charcoal-900 flex items-center justify-center mb-2 transition-all border border-slate-200/90 shadow-2xs">
+              <PackageMinus className="w-3.5 h-3.5" />
             </div>
-            <span className="text-xs font-bold text-charcoal-900 group-hover:text-amber-700 transition-colors">Issue Stock</span>
+            <span className="text-xs font-bold text-charcoal-900 group-hover:text-charcoal-950 transition-colors">Issue Stock</span>
             <span className="text-[10px] text-slate-500 mt-0.5">To Work Package</span>
           </button>
 
@@ -177,10 +181,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             className="flex flex-col items-start p-3 rounded-xl bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-left transition-all group"
             title="Record physical completion milestone"
           >
-            <div className="w-7 h-7 rounded-lg bg-sage-50 text-sage-700 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform border border-sage-200/60">
-              <TrendingUp className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-white text-charcoal-700 group-hover:bg-charcoal-900 group-hover:text-white group-hover:border-charcoal-900 flex items-center justify-center mb-2 transition-all border border-slate-200/90 shadow-2xs">
+              <TrendingUp className="w-3.5 h-3.5" />
             </div>
-            <span className="text-xs font-bold text-charcoal-900 group-hover:text-sage-800 transition-colors">Log Progress</span>
+            <span className="text-xs font-bold text-charcoal-900 group-hover:text-charcoal-950 transition-colors">Log Progress</span>
             <span className="text-[10px] text-slate-500 mt-0.5">Field Milestones</span>
           </button>
 
@@ -190,10 +194,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate }) => {
             className="flex flex-col items-start p-3 rounded-xl bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 text-left transition-all group"
             title="Generate contractor milestone bill"
           >
-            <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform border border-purple-100">
-              <Receipt className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-lg bg-white text-charcoal-700 group-hover:bg-charcoal-900 group-hover:text-white group-hover:border-charcoal-900 flex items-center justify-center mb-2 transition-all border border-slate-200/90 shadow-2xs">
+              <FileText className="w-3.5 h-3.5" />
             </div>
-            <span className="text-xs font-bold text-charcoal-900 group-hover:text-purple-700 transition-colors">Create Bill</span>
+            <span className="text-xs font-bold text-charcoal-900 group-hover:text-charcoal-950 transition-colors">Create Bill</span>
             <span className="text-[10px] text-slate-500 mt-0.5">Billing &amp; Payouts</span>
           </button>
         </div>

@@ -6,12 +6,12 @@
 
 ## 📑 Project Presentations & Documentation
 
-The official project review slide decks are available in the [`docs/`](./docs) directory:
+The official project review slide decks are available directly in the root repository:
 
 | Presentation | Topic | Link |
 | :--- | :--- | :--- |
-| **Review 2 Final** | 3NF Schema Design, ER Modeling, Relational Algebra & SQL Views | [**DBMS_Review2_Final.pdf**](./docs/DBMS_Review2_Final.pdf) |
-| **Review 3 Final** | Full-Stack Architecture, Business Logic Triggers & Final System Demo | [**BUILDREC_Review3.pdf**](./docs/BUILDREC_Review3.pdf) |
+| **Review 2 Final** | 3NF Schema Design, ER Modeling, Relational Algebra & SQL Views | [**DBMS_Review2_Final.pdf**](./DBMS_Review2_Final.pdf) |
+| **Review 3 Final** | Full-Stack Architecture, Business Logic Triggers & Final System Demo | [**BUILDREC_Review3.pdf**](./BUILDREC_Review3.pdf) |
 
 ---
 
@@ -21,11 +21,6 @@ The repository is structured into distinct, decoupled top-level directories:
 
 ```
 DBMS/
-├── docs/                        # Project Documentation & Review Presentations
-│   ├── DBMS_Review2_Final.pdf   # Review 2 Presentation (Schema, ERD, Relational Algebra)
-│   ├── BUILDREC_Review3.pdf     # Review 3 Final Presentation (Full-Stack System Delivery)
-│   └── README.md                # Documentation overview
-│
 ├── frontend/                    # Frontend Application (React 19 + TypeScript + Vite)
 │   ├── src/
 │   │   ├── components/          # Reusable UI components (Navbar, Sidebar, Modal, StatCard)
@@ -59,6 +54,8 @@ DBMS/
 │   ├── view_all_tables.sql      # Table inspection verification script
 │   └── README.md                # Database documentation & trigger logic guide
 │
+├── BUILDREC_Review3.pdf         # Review 3 Final Presentation (Full-Stack System Delivery)
+├── DBMS_Review2_Final.pdf       # Review 2 Presentation (Schema, ERD, Relational Algebra)
 ├── .gitignore                   # Repository-level ignore rules
 ├── package.json                 # Monorepo orchestration scripts
 └── README.md                    # Master project documentation

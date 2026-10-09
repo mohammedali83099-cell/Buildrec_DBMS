@@ -7,6 +7,7 @@ import {
   HardHat, 
   Receipt, 
   BarChart3,
+  ShieldCheck,
   X
 } from 'lucide-react';
 
@@ -51,15 +52,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const content = (
     <div className="flex flex-col h-full py-4 px-3">
-      {/* Mobile close header */}
-      <div className="md:hidden flex items-center justify-between px-3 pb-4 mb-2 border-b border-slate-200/60">
-        <div className="flex items-center gap-2">
-          <img src="/favicon.png" alt="BUILDREC Icon" className="w-6 h-6 object-contain" />
-          <span className="font-bold text-sm tracking-wide text-charcoal-900">BUILDREC NAVIGATION</span>
-        </div>
+      {/* Brand Header */}
+      <div className="px-3 pt-1 pb-4 mb-3 border-b border-slate-200/60 flex items-center justify-between">
+        <button
+          onClick={() => {
+            onTabChange('dashboard');
+            onCloseMobile();
+          }}
+          className="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity text-left"
+          aria-label="BUILDREC Home"
+        >
+          <img 
+            src="/buildrec_logo.png" 
+            alt="BUILDREC Logo" 
+            className="h-8 w-auto object-contain"
+          />
+        </button>
+
         <button 
           onClick={onCloseMobile}
-          className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100"
+          className="md:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100"
           aria-label="Close navigation"
         >
           <X className="w-5 h-5" />
@@ -83,27 +95,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-left transition-all duration-150 group relative ${
                 isActive
-                  ? 'bg-gradient-to-r from-charcoal-800 to-charcoal-900 text-white shadow-xs'
-                  : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-slate-50'
+                  ? 'bg-slate-100/90 text-charcoal-950 border border-slate-200/90 shadow-2xs'
+                  : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-slate-50 border border-transparent'
               }`}
             >
               <Icon className={`w-5 h-5 shrink-0 transition-colors ${
-                isActive ? 'text-sage-300' : 'text-slate-400 group-hover:text-sage-600'
+                isActive ? 'text-sage-700' : 'text-slate-400 group-hover:text-charcoal-700'
               }`} />
               
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-semibold truncate leading-tight">
+                <div className={`text-sm truncate leading-tight ${
+                  isActive ? 'font-bold text-charcoal-950' : 'font-semibold text-charcoal-800'
+                }`}>
                   {item.label}
                 </div>
                 <div className={`text-[11px] truncate leading-tight mt-0.5 ${
-                  isActive ? 'text-slate-300/80' : 'text-slate-400'
+                  isActive ? 'text-slate-500 font-medium' : 'text-slate-400'
                 }`}>
                   {item.description}
                 </div>
               </div>
 
               {isActive && (
-                <span className="w-1.5 h-6 rounded-full bg-sage-400 absolute right-2" />
+                <span className="w-1.5 h-5 rounded-full bg-sage-500 absolute right-2.5 top-1/2 -translate-y-1/2" />
               )}
             </button>
           );
@@ -113,9 +127,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Footer Branding snippet */}
       <div className="mt-auto pt-4 px-3 border-t border-slate-200/60">
         <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 text-xs">
-          <div className="font-semibold text-charcoal-800">BUILDREC ERP</div>
-          <div className="text-[11px] text-slate-500 mt-0.5">Site Operations &amp; Inventory System</div>
-          <div className="text-[10px] text-slate-400 mt-1">Enterprise Platform • v2.4</div>
+          <div className="flex items-center justify-between">
+            <span className="font-semibold text-charcoal-800">BUILDREC ERP</span>
+            <span className="text-[10px] text-slate-500 bg-white px-2 py-0.5 rounded-md border border-slate-200/80 font-medium">v2.4</span>
+          </div>
+          <div className="text-[11px] text-slate-500 mt-1">Site Operations &amp; Inventory System</div>
+          <div className="flex items-center gap-1.5 text-[10px] text-slate-400 mt-2">
+            <ShieldCheck className="w-3 h-3 text-sage-600" />
+            <span>Enterprise Site Operations</span>
+          </div>
         </div>
       </div>
     </div>
@@ -124,7 +144,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:block w-64 lg:w-72 shrink-0 h-[calc(100vh-5rem)] sticky top-20 bg-white border border-slate-200/80 rounded-2xl shadow-xs overflow-y-auto">
+      <aside className="hidden md:block w-64 lg:w-72 shrink-0 h-[calc(100vh-3rem)] sticky top-6 bg-white border border-slate-200/80 rounded-2xl shadow-xs overflow-y-auto">
         {content}
       </aside>
 

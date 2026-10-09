@@ -4,7 +4,7 @@
 
 ---
 
-## 📑 Project Presentations & Documentation
+## Project Presentations & Documentation
 
 The official project review slide decks are available directly in the root repository:
 
@@ -67,52 +67,7 @@ DBMS/
 
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS, Lucide React, Recharts
 - **Backend**: Node.js, Express, TypeScript, mysql2, tsx
-- **Database**: MySQL (15 normalized relational tables, automated triggers, analytical views)
+- **Database**: MySQL 
 
 ---
 
-## Quickstart
-
-### 1. Database Setup
-Import the database schema and sample data into your local MySQL server:
-```bash
-mysql -u root -p < database/database_setup.sql
-```
-
-### 2. Backend Setup & Startup
-```bash
-cd backend
-cp .env.example .env
-# Edit .env with your MySQL credentials (DB_USER, DB_PASSWORD, etc.)
-npm install
-npm run dev
-```
-The backend API server runs at `http://localhost:5000`.
-
-### 3. Frontend Setup & Startup
-```bash
-cd frontend
-npm install
-npm run dev
-```
-The frontend web application runs at `http://localhost:5173`.
-
-### 4. Monorepo Scripts (Root)
-From the root directory:
-```bash
-npm run dev:backend   # Starts backend API
-npm run dev:frontend  # Starts frontend app
-npm run build         # Builds both backend and frontend
-```
-
----
-
-## Core Capabilities Across Modules
-
-1. **Dashboard**: High-level KPI summary, project counts, pending contractor bills, recent milestone progress, and financial charts.
-2. **Projects & Sites**: Multi-site management per project with inline site creation and filtering.
-3. **Procurement & Deliveries**: Purchase order creation, supplier catalog, site delivery logging, and inline item reception.
-4. **Materials & Site Inventory**: Live site stock tracking, item catalog, and material issue logging to active work packages.
-5. **Work Packages & Progress**: Field progress milestone recording (0–100%), labour force assignments, and contractor management.
-6. **Billing & Payments**: Contractor invoice management with progress checks (>= 10%) and payment authorization with balance tracking.
-7. **Reports & Analytics**: Comprehensive analytical views, site inventory health, and financial summaries.
